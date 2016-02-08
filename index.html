@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Learning JavaScript</title>
+
+		<meta name="description" content="Learning JavaScript for beginners">
+		<meta name="author" content="Darren Coxall">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/github.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+        <section>
+          <h1>What is JavaScript?</h1>
+          <h3>Marks &amp; Spencer</h3>
+          <p>by <a href="http://darrencoxall.com">Darren Coxall</a></p>
+        </section>
+
+        <section>
+          <h2>JavaScript is&hellip;</h2>
+          <ul>
+            <li>A scripting language</li>
+            <li>Object-orientated</li>
+            <li>Distributed by web browsers</li>
+          </ul>
+
+          <aside class="notes">
+            <ul>
+              <li>
+                Scripting languages are languages that can be used to create small, often single file scripts
+                that can perform actions. Usually executed top-to-bottom.
+              </li>
+              <li>
+                Object orientated is a programming paradigm based on objects and their interactions. This is to make
+                modelling behaviour easier as we can design the system around a real life concept. e.g. a car has two wheels
+                can be modelled as a Car object with a value of 2 for it's wheels.
+              </li>
+              <li>
+                Javascript is most commonly distributed via web browsers, many with their own <em>engines</em> that mean
+                they have slightly different support for certain features. This is also what makes it common in websites
+                as we known most visitors have it available simply because they are using their web browser.
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h2>JavaScript is <em>NOT</em>&hellip;</h2>
+          <ul>
+            <li>Java</li>
+            <li>Fundamental to HTML</li>
+          </ul>
+
+          <blockquote class="fragment">
+            Java is to JavaScript as ham is to hamster
+          </blockquote>
+
+          <aside class="notes">
+            <p>
+              Often for newcomers, javascript and java are confused due to their names. That is where the real similarities
+              end. they are both languages but work very differently. So be sure when searching that you are using
+              JavaScript and not Java.
+            </p>
+            <p>
+              HTML and it's surrounding languages are all individual components. CSS ties very tightly to HTML but again isn't
+              necessary to view it or have a website. JavaScript is even less necessary. Many people actively disable JavaScript
+              in their browser too. It's not uncommon nowadays for large sites to be un-usable without JavaScript but just a
+              few years ago it was considered poor practice to rely on JavaScript.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>How to use it</h2>
+          <p>The most common way to execute JavaScript is to use a <code>script</code> tag in HTML.</p>
+          <pre><code data-trim>
+<script src="path/to/script.js"></script>
+
+<script type="text/javascript">
+  // Code goes here
+</script>
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              The first line demonstrates how to load or include an external file whilst the last 3 lines show
+              how to write javascript directly into the tag. This is similar to CSS and the use of the style tag.
+            </p>
+            <p>
+              It's also worth noting that this tag can go in the head of the HTML or the body. When in the head it will be
+              executed before any content is actually available so a common technique is to put script tags at the very
+              bottom of the body tag to ensure there is content on the page before executing.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Programming fundamentals</h2>
+          <ul>
+            <li>Variables</li>
+            <li>Data Types</li>
+            <li>Functions</li>
+            <li>Parameters</li>
+            <li>Objects</li>
+            <li>Methods</li>
+          </ul>
+
+          <aside class="notes">
+            <p>
+              To really use and understanding JavaScript you need to develop some fundamental programming skills. These concepts
+              are often cross functional and apply to all languages and are the building blocks of solving problems with code.
+            </p>
+            <p>
+              There is a lot here so I'm going to give a basic overview of each. When combined they become LEGO
+              blocks to code that can be used to solve a huge variety of problems, not just in JavaScript but
+              any other programming language.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Variables</h2>
+          <p>
+            Think of a variable as a bucket that can hold some information. This information can be changed later
+            making it <em>variable</em>.
+          </p>
+          <pre><code data-trim>
+var myFavouriteNumber = 26;
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              All the examples shown will be written in JavaScript. This example is me creating a variable named myFavouriteNumber
+              and setting it to the number 26. The semi-colon is important as it tells JavaScript that it's the end of the line.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Data Types</h2>
+          <p>
+            There are many different ways to represent information.
+          </p>
+          <pre><code data-trim>
+var myFavouriteNumber = 26;  // Integer
+var myFavouriteFloat  = 1.3; // Float
+
+var myName = "Darren Coxall"; // String
+var myLotteryNumbers = [10, 12, 18, 34, 52, 56, 50]; // Array
+var groceryList = [
+  "cheese",
+  "eggs",
+  "ham"
+];
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              Data types have specific characteristics that make them better for modelling certain types of information.
+            </p>
+            <ul>
+              <li>An integer has no concept of decimal places or fractions</li>
+              <li>A float is an approximation of a decimal number so rounding can cause issues</li>
+              <li>A String is great for text but is less useful for numeric values</li>
+              <li>An Array is great for storing a list or collection of information but what happens if it's empty?</li>
+            </ul>
+            <p>
+              They all have pros and cons. Also please note how an interpretted line can span multiple visible lines
+              only ending after the semi colon.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Functions</h2>
+          <p>
+            A function allows you to create re-usable code.
+          </p>
+          <pre><code data-trim>
+function onePlusOne() {
+  return 1 + 1;
+}
+
+onePlusOne() + onePlusOne(); // => (2 + 2) 4
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              A function, once defined can be called multiple times which will make it re-execute. In this example
+              I define a function called onePlusOne and then I add the result of calling it twice, together.
+            </p>
+            <p>
+              Just to confuse matters, also note how a semi-colon isn't necessary whyen defining a function in this way.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Functions cont&hellip;</h2>
+          <pre><code data-trim>
+// a variable function
+var onePlusOne = function() {
+  return 1 + 1;
+};
+
+onePlusOne() + onePlusOne(); // => (2 + 2) 4
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              Now here you see we can actually store the function itself within a variable. When doing it this way
+              you should be using the semi colon at the end of the function.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Parameters &amp; Arguments</h2>
+          <p>
+            Functions without parameters don't provide much flexibility. But when we can add different inputs we get
+            a lot more.
+          </p>
+          <pre><code data-trim>
+function multiply(x, y) {
+  return x * y;
+}
+
+multiply(2, 3);   // => 6
+multiply(10, 10); // => 100
+
+multiply(2, multiply(1, 10)); // => 20
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              Within the brackets you can define the names of your parameters. In this case, x and y. These will then
+              operate like variables within the function allowing you use them as if they were the item stored within.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Objects</h2>
+          <p>
+            Objects are simply an instance of a data type or class (a custom data type). In JavaScript you can build your own
+            objects using curl braces.
+          </p>
+          <pre><code data-trim>
+var aboutMe = {
+  name:   "Darren Coxall",
+  age:    26,
+  height: [6, 0],
+  sayHello: function(name) {
+    return "Hello, " + name;
+  }
+};
+
+aboutMe.name;   // => "Darren Coxall"
+aboutMe.height; // => [6, 0]
+
+aboutMe.sayHello("Jane"); // => "Hello. Jane"
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              To access data within an object, or to call a method on an object we use what is known as dot notation.
+              This is why there is a period or dot after the object name but before the attribute/method name.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Methods</h2>
+          <p>
+            Commonly confused with functions. The difference is that a method has access to it's own object.
+          </p>
+          <pre><code data-trim>
+var aboutMe = {
+  name:     "Darren Coxall",
+  sayHello: function(name) {
+    return this.name + " says hello to " + name;
+  }
+};
+
+aboutMe.sayHello("Jane"); // => "Darren Coxall says hello to Jane"
+          </code></pre>
+
+          <aside class="notes">
+            <p>
+              In this example the keyword "this" allows us to use other information from the same object.
+              This is an important distinction between functions and methods. Functions are stateless, they operate
+              on inputs and outputs whereas Methods have state provided by the object itself.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Common uses on websites</h2>
+          <ul>
+            <li>
+              Live page updates
+              <ul>
+                <li>Twitter feed</li>
+                <li>Live comment preview</li>
+                <li>Modal windows <em>(ugh think popups)</em></li>
+              </ul>
+            </li>
+            <li>Saving without reloading</li>
+            <li>Validating forms</li>
+          </ul>
+
+          <aside class="notes">
+            <p>
+              JavaScript is used all over the web now in many forms. It's thanks to JavaScript that you have very rich dynamic
+              services like twitter and facebook (at least in the browser) and due to the flexibility of the language it is
+              quickly being used to replicate native applications but within the browser.
+            </p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Other terms</h2>
+          <ul>
+            <li>DOM</li>
+            <li>jQuery</li>
+            <li>Node</li>
+          </ul>
+
+          <aside class="notes">
+            <ul>
+              <li>
+                DOM stands for Document Object Model. When the browser renders HTML it is building a tree of tags
+                into it's memory. This is the DOM. Each tag is an object that models the the document when combined.
+              </li>
+              <li>
+                jQuery is a popular library written in javascript for manipulating websites and the DOM. It helps to hide
+                the complexity in supporting the different browsers whilst providing lots of utility functions for
+                working with particular data types.
+              </li>
+              <li>
+                Node is some software that let's you run JavaScript on a server. It also gives the language access
+                to things it otherwise doesn't get to interact with such as files on your computer.
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Fantastic resources</h2>
+          <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction">Mozilla Developer Network</a></li>
+            <li><a href="http://eloquentjavascript.net/">Eloquent JavaScript (free online book)</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PL5586336C26BDB324">Douglas Crockford - The JavaScript Trilogy</a></li>
+            <li><a href="http://www.freecodecamp.com/">freeCodeCamp</a></li>
+            <li><a href="https://jsfiddle.net/">JS Fiddle</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Closing</h2>
+          <p>
+            This is the point where people start to discover what they enjoy. Building the front end: visuals; interactions; etc; Or
+            they discover they like the more tangible side of things with programming which can lead to testing code; server side;
+            data handling; etc.
+          </p>
+          <p>
+            JavaScript is a fantastic language to begin learning what can be done with programming. When combined with HTML and CSS
+            you can quickly build very engaging and professional websites.
+          </p>
+        </section>
+
+        <section>
+          <h2>Pretty Please!</h2>
+          <p>
+            I would seriously love to know what direction you feel yourself leaning (even if both is the answer) as it will help
+            with the continued direction the lessons head in.
+          </p>
+          <p>
+            What type of personality are you? What have you enjoyed most so far? What would you like to explore further? We are at
+            a crucial juncture where we can really tailor the experience.
+          </p>
+        </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
